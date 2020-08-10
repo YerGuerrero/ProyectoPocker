@@ -1,9 +1,17 @@
 package Juego;
 
-public class AnalizarMano {
-    static final int CANT_CARTAS=5;
+import java.util.ArrayList;
+import java.util.*;
 
-    public Vector analizaMano(Carta[] mano){
+public class AnalizarMano {
+    int CANT_CARTAS;
+
+    public Vector analizaMano(Mano mano){
+        CANT_CARTAS=mano.getCartasJugador().size()+mano.getCartasAbiertas().size();
+        ArrayList<Carta> manoCompleta= new ArrayList<Carta>();
+        manoCompleta.addAll(mano.getCartasJugador());
+        manoCompleta.addAll(mano.getCartasAbiertas());
+
         Vector vector= new Vector(CANT_CARTAS+1);
         return vector;
     }
