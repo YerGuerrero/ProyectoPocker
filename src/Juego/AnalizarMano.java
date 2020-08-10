@@ -9,7 +9,7 @@ public class AnalizarMano {
     }
 
     public boolean esEscaleraReal(Carta[] mano){
-        return esEscaleraReal(ordenarNum(mano))&& esColor(mano);
+        return esEscaleraReal(ordenarNum(mano)) && esColor(mano);
     }
 
     public boolean esColor(Carta[] mano){
@@ -23,10 +23,41 @@ public class AnalizarMano {
     public boolean esEscalera(Carta[] mano){
         int num=mano[0].getNumero();
         boolean escalera= true;
+        ordenarNum(mano);
         for (int i=1;i<CANT_CARTAS && escalera;i++){
             escalera=num+i==mano[i].getNumero();
         }
         return escalera;
+    }
+
+    public boolean esEscaleraColor(Carta[] mano){
+
+        boolean escaleraColor=true;
+        return true;
+    }
+
+    public boolean esPoker(Carta[] mano){
+        return true;
+    }
+
+    public boolean esFull(Carta[] mano){
+        return true;
+    }
+
+    public boolean esTrio(Carta[] mano){
+        return true;
+    }
+
+    public boolean esDoblePareja(Carta[] mano){
+        return true;
+    }
+
+    public boolean esPareja(Carta[] mano){
+        return true;
+    }
+
+    public boolean esCartaAlta(Carta[] mano){
+        return true;
     }
 
     private Carta[] ordenarNum( Carta[] mano){

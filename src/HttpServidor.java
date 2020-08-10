@@ -11,7 +11,6 @@ public class HttpServidor {
         for (int i=0; i<52;i++){
             System.out.println("carta: "+temp.get(i).getNumero()+temp.get(i).getPalo());
         }
-
         System.out.println("Holii");
     }
 }
