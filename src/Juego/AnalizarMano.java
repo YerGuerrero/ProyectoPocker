@@ -1,0 +1,64 @@
+package Juego;
+
+public class AnalizarMano {
+    static final int CANT_CARTAS=5;
+
+    public Vector analizaMano(Carta[] mano){
+        Vector vector= new Vector(CANT_CARTAS+1);
+        return vector;
+    }
+
+    public boolean esEscaleraReal(Carta[] mano){
+        return esEscaleraReal(ordenarNum(mano))&& esColor(mano);
+    }
+
+    public boolean esColor(Carta[] mano){
+        boolean color= true;
+        for (int i=1; i<CANT_CARTAS&& color;i++){
+            color=mano[0].getPalo()==mano[i].getPalo();
+        }
+        return color;
+    }
+
+    public boolean esEscalera(Carta[] mano){
+        int num=mano[0].getNumero();
+        boolean escalera= true;
+        for (int i=1;i<CANT_CARTAS && escalera;i++){
+            escalera=num+i==mano[i].getNumero();
+        }
+        return escalera;
+    }
+
+    private Carta[] ordenarNum( Carta[] mano){
+        ordenarNum(mano,0,4);
+        return mano;
+    }
+
+    private Carta[] ordenarNum(Carta[] mano,int inicio, int ultimo ){
+        if (inicio<ultimo){
+            int contParticion=particion(mano, inicio, ultimo);
+            ordenarNum(mano,inicio,contParticion-1);
+            ordenarNum(mano,contParticion+1,ultimo);
+        }
+        return mano;
+    }
+
+    private int particion( Carta[] ordenar, int inicio, int ultimo ){
+        int privote= ordenar[ultimo].getNumero();
+        int i= (inicio-1);
+
+        for(int j = inicio; j<ultimo; j++){
+            if(ordenar[j].getNumero()<=privote){
+                i++;
+                Carta swapTemp=ordenar[i];
+                ordenar[i]=ordenar[j];
+                ordenar[j]=swapTemp;
+            }
+        }
+        Carta swapTemp= ordenar[i+1];
+        ordenar[i+1]=ordenar[ultimo];
+        ordenar[ultimo]=swapTemp;
+        return i+1;
+    }
+
+}

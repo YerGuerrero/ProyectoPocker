@@ -1,10 +1,10 @@
 package Juego;
 
 public class Jugador {
-    private Carta[] mano;
+    private Mano mano;
     private int id;
 
-    public void apuestaJugador(){
+    public void apuestaJugador(){//Preguntar
 
     }
 
@@ -15,4 +15,15 @@ public class Jugador {
 
     }
 
+    public void setMano( Mano mano ) {
+        this.mano = mano;
+    }
+
+    public Mano getMano() {
+        return mano;
+    }
+
+    public int getId() {
+        return id;
+    }
 }

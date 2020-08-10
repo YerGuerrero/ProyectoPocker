@@ -1,12 +1,29 @@
 package Juego;
 
-public class Mano {
-    private Carta[] cartasAbiertas;
-    private Carta[] cartasJugador;
+import java.util.ArrayList;
 
-    public Mano( Carta[] cartasAbiertas, Carta[] cartasJugador ) {
-        this.cartasAbiertas = cartasAbiertas;
-        this.cartasJugador = cartasJugador;
+public class Mano {
+    private ArrayList<Carta> cartasAbiertas;
+    private ArrayList<Carta> cartasJugador= new ArrayList<Carta>(5);
+    Vector vector= new Vector(6);
+
+    public Mano() {
+
     }
 
+    public ArrayList<Carta> getCartasAbiertas() {
+        return cartasAbiertas;
+    }
+
+    public ArrayList<Carta> getCartasJugador() {
+        return cartasJugador;
+    }
+
+    public void setCartasAbiertas( ArrayList<Carta> cartasAbiertas ) {
+        this.cartasAbiertas = cartasAbiertas;
+    }
+
+    public void setCartasJugador( ArrayList<Carta> cartasJugador ) {
+        this.cartasJugador = cartasJugador;
+    }
 }
