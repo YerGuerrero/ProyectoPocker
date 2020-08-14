@@ -2,12 +2,10 @@ package Juego;
 
 public class Carta implements Comparable<Carta>{
     private int palo;
-    //private int color;
     private int numero;
 
     public Carta(int numero) {
         this.palo = (numero/13);
-        //this.color = color;
         this.numero = (numero%13);
     }
 
@@ -30,7 +28,6 @@ public class Carta implements Comparable<Carta>{
 
     @Override
     public int compareTo( Carta carta ) {
-        int temp=this.getOrdinal()- carta.getOrdinal();
-        return 0;
+        return this.getOrdinal()- carta.getOrdinal();
     }
 }

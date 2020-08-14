@@ -11,6 +11,7 @@ public class Jugador {
     public void pideCarta(){
 
     }
+
     public void botaCarta(){
 
     }

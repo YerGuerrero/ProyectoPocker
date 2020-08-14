@@ -2,6 +2,7 @@ package Juego;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import Juego.AnalizarMano;
 
 public class Baraja {
     private ArrayList<Carta> baraja;
@@ -25,7 +26,11 @@ public class Baraja {
         }
         Jugador jugador1=new Jugador();
         Jugador jugador2=new Jugador();
-        repartir(4, jugador1,jugador2);
+        repartir(10, jugador1,jugador2);
+        System.out.println("Jugador1");
+        AnalizarMano.analizaMano(jugador1.getMano());
+        System.out.println("Jugador2");
+        AnalizarMano.analizaMano(jugador2.getMano());
     }
        /* baraja= new Carta[52];
         int cont=1;// 1->bastos, 2->corazones, 3->treboles, 4->diamantes
@@ -81,13 +86,14 @@ public class Baraja {
             }
         }
         Mano manotemp1 = new Mano();
-        manotemp1.setCartasJugador(mano1);
+        manotemp1.setMano(mano1);
         Mano manotemp2 = new Mano();
-        manotemp2.setCartasJugador(mano2);
+        manotemp2.setMano(mano2);
         jugador1.setMano(manotemp1);
         jugador2.setMano(manotemp2);
-        ArrayList<Carta> manoTemp = jugador1.getMano().getCartasJugador();
-        ArrayList<Carta> manoTemp2 = jugador2.getMano().getCartasJugador();
+
+        ArrayList<Carta> manoTemp = jugador1.getMano().getMano();
+        ArrayList<Carta> manoTemp2 = jugador2.getMano().getMano();
         for (Carta carta : manoTemp) {
             if (carta != null) {
                 System.out.println("Jugador 1: " + carta.getNumero() + carta.getPalo());

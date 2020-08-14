@@ -1,26 +1,58 @@
 package Juego;
 
-import java.util.ArrayList;
-import java.util.*;
 
 public class AnalizarMano {
-    int CANT_CARTAS;
+    private static int CANT_CARTAS = 0;
 
-    public Vector analizaMano(Mano mano){
-        CANT_CARTAS=mano.getCartasJugador().size()+mano.getCartasAbiertas().size();
-        ArrayList<Carta> manoCompleta= new ArrayList<Carta>();
-        manoCompleta.addAll(mano.getCartasJugador());
-        manoCompleta.addAll(mano.getCartasAbiertas());
-
+    public static Vector analizaMano( Mano mano ){
+        CANT_CARTAS=mano.getMano().size();
+        Carta[] manoCompleta= new Carta[CANT_CARTAS];
+        for(int i=0;i<CANT_CARTAS; i++){
+            manoCompleta[i]=mano.getMano().get(i);
+        }
         Vector vector= new Vector(CANT_CARTAS+1);
+
+        if(esEscaleraReal(manoCompleta)){
+            vector.set(0,9);
+        }
+        else if(esEscaleraColor(manoCompleta)){
+            vector.set(1,8);
+        }
+        else if(esPoker(manoCompleta)){
+            vector.set(2,7);
+        }
+        else if(esFull(manoCompleta)){
+            vector.set(3,6);
+        }
+        else if(esColor(manoCompleta)){
+            vector.set(4,5);
+        }
+        else if(esEscalera(manoCompleta)){
+            vector.set(5,4);
+        }
+        else if(esTrio(manoCompleta)){
+            vector.set(6,3);
+        }
+        else if(esDoblePareja(manoCompleta)){
+            vector.set(7,2);
+        }
+        else if(esPareja(manoCompleta)){
+            vector.set(8,1);
+        }
+        else {
+            vector.set(9,0);
+        }
+        for (int i=0; i<CANT_CARTAS;i++){
+            System.out.println("Vector:"+ vector.get(i));
+        }
         return vector;
     }
 
-    public boolean esEscaleraReal(Carta[] mano) {
+    public static boolean esEscaleraReal(Carta[] mano) {
         return esEscaleraReal(ordenarNum(mano)) && esColor(mano);
     }
 
-    public boolean esColor(Carta[] mano) {
+    public static boolean esColor(Carta[] mano) {
         boolean color = true;
         for (int i = 1; i < CANT_CARTAS && color; i++) {
             color = mano[0].getPalo() == mano[i].getPalo();
@@ -28,7 +60,7 @@ public class AnalizarMano {
         return color;
     }
 
-    public boolean esEscalera(Carta[] mano) {
+    public static boolean esEscalera(Carta[] mano) {
         int num = mano[0].getNumero();
         boolean escalera = true;
         ordenarNum(mano);
@@ -38,7 +70,7 @@ public class AnalizarMano {
         return escalera;
     }
 
-    public boolean esEscaleraColor(Carta[] mano) {
+    public static boolean esEscaleraColor(Carta[] mano) {
         int num = mano[0].getNumero();
         boolean escaleraColor = true;
         ordenarNum(mano);
@@ -49,7 +81,7 @@ public class AnalizarMano {
         return escaleraColor;
     }
 
-    public boolean esPoker(Carta[] mano) {
+    public static boolean esPoker(Carta[] mano) {
         boolean poker = true;
         ordenarNum(mano);
         if (mano[0].getNumero() == mano[1].getNumero()) {
@@ -64,11 +96,11 @@ public class AnalizarMano {
         return poker;
     }
 
-    public boolean esFull(Carta[] mano) {
+    public static boolean esFull(Carta[] mano) {
         return true;
     }
 
-    public boolean esTrio(Carta[] mano) {
+    public static boolean esTrio(Carta[] mano) {
         boolean trio = false;
         ordenarNum(mano);
         int cant = 1;
@@ -81,7 +113,7 @@ public class AnalizarMano {
         return trio;
     }
 
-    public boolean esPareja(Carta[] mano) {
+    public static boolean esPareja(Carta[] mano) {
         boolean pareja = false;
         ordenarNum(mano);
         int cant = 1;
@@ -94,7 +126,7 @@ public class AnalizarMano {
         return pareja;
     }
 
-    public boolean esDoblePareja(Carta[] mano) {
+    public static boolean esDoblePareja(Carta[] mano) {
         boolean doblePareja = false;
         ordenarNum(mano);
         int parejas = 0;
@@ -107,28 +139,27 @@ public class AnalizarMano {
         return doblePareja;
     }
 
-    public Carta esCartaAlta(Carta[] mano) {
+    public static Carta esCartaAlta(Carta[] mano) {
         ordenarNum(mano);
         return mano[(mano.length)-1];
     }
 
-    private Carta[] ordenarNum(Carta[] mano) {
-        ordenarNum(mano, 0, 4);
+    public static Carta[] ordenarNum(Carta[] mano) {
+        ordenarNum(mano, 1, 9);
         return mano;
     }
 
-    private Carta[] ordenarNum(Carta[] mano, int inicio, int ultimo) {
+    public static void ordenarNum(Carta[] mano, int inicio, int ultimo) {
         if (inicio < ultimo) {
             int contParticion = particion(mano, inicio, ultimo);
             ordenarNum(mano, inicio, contParticion - 1);
             ordenarNum(mano, contParticion + 1, ultimo);
         }
-        return mano;
     }
 
-    private int particion(Carta[] ordenar, int inicio, int ultimo) {
+    public static int particion(Carta[] ordenar, int inicio, int ultimo) {
         int privote = ordenar[ultimo].getNumero();
-        int i = (inicio - 1);
+        int i = inicio-1;
 
         for (int j = inicio; j < ultimo; j++) {
             if (ordenar[j].getNumero() <= privote) {
