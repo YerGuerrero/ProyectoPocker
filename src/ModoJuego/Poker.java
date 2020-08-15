@@ -35,9 +35,14 @@ public class Poker extends ModoJuego {
         }else if (pos1>pos2){
             jugador2.setGanar(true);
         }
-        else{
-            //empate();
+        else {
+            empate(pos1,pos2);
+
         }
+    }
+
+    public void empate(int pos1, int pos2){
+
     }
 
     @Override

@@ -19,6 +19,7 @@ public class Holdem extends Poker {
 
     @Override
     public void jugar() {
+        System.out.println("Holdem");
        baraja.repartir(2,jugador1,jugador2);
        //apuesta
         Carta[] mesa= new Carta[5];

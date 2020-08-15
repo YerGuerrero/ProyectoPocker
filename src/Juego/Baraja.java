@@ -30,7 +30,6 @@ public class Baraja {
         ArrayList<Carta> mano2 = new ArrayList<>(cantidad);
         for (int i = 0; i < cantidad * 2; i++) {
             if (i % 2 == 0) {
-                System.out.println(jugador1.getMano());
                 jugador1.getMano().getMano().add(baraja.get(i));
             } else {
                 jugador2.getMano().getMano().add(baraja.get(i));
