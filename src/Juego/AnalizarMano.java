@@ -2,59 +2,59 @@ package Juego;
 
 
 public class AnalizarMano {
-    private static int CANT_CARTAS = 0;
+    private static int TAM_VECTOR = 10;
+    static int  CANT_CARTASJUG;
 
     public static Vector analizaMano( Mano mano ){
-        CANT_CARTAS=mano.getMano().size();
-        Carta[] manoCompleta= new Carta[CANT_CARTAS];
-        for(int i=0;i<CANT_CARTAS; i++){
+        CANT_CARTASJUG=mano.getMano().size();
+        Carta[] manoCompleta= new Carta[CANT_CARTASJUG];
+        for(int i=0;i<CANT_CARTASJUG; i++){
             manoCompleta[i]=mano.getMano().get(i);
         }
-        Vector vector= new Vector(CANT_CARTAS+1);
-
+        Vector vector= new Vector(TAM_VECTOR+1);
         if(esEscaleraReal(manoCompleta)){
-            vector.set(0,9);
+            vector.set(0,1);
         }
         else if(esEscaleraColor(manoCompleta)){
-            vector.set(1,8);
+            vector.set(1,1);
         }
         else if(esPoker(manoCompleta)){
-            vector.set(2,7);
+            vector.set(2,1);
         }
         else if(esFull(manoCompleta)){
-            vector.set(3,6);
+            vector.set(3,1);
         }
         else if(esColor(manoCompleta)){
-            vector.set(4,5);
+            vector.set(4,1);
         }
         else if(esEscalera(manoCompleta)){
-            vector.set(5,4);
+            vector.set(5,1);
         }
         else if(esTrio(manoCompleta)){
-            vector.set(6,3);
+            vector.set(6,1);
         }
         else if(esDoblePareja(manoCompleta)){
-            vector.set(7,2);
+            vector.set(7,1);
         }
         else if(esPareja(manoCompleta)){
             vector.set(8,1);
         }
-        else {
-            vector.set(9,0);
+        else if (esCartaAlta(manoCompleta)){
+            vector.set(9,1);
         }
-        for (int i=0; i<CANT_CARTAS;i++){
-            System.out.println("Vector:"+ vector.get(i));
+        for (int i=0; i<TAM_VECTOR;i++){
+            System.out.println("Vector:"+ i+" "+vector.get(i));
         }
         return vector;
     }
 
     public static boolean esEscaleraReal(Carta[] mano) {
-        return esEscaleraReal(ordenarNum(mano)) && esColor(mano);
+        return esEscalera(ordenarNum(mano)) && esColor(mano);
     }
 
     public static boolean esColor(Carta[] mano) {
         boolean color = true;
-        for (int i = 1; i < CANT_CARTAS && color; i++) {
+        for (int i = 1; i < CANT_CARTASJUG && color; i++) {
             color = mano[0].getPalo() == mano[i].getPalo();
         }
         return color;
@@ -64,7 +64,7 @@ public class AnalizarMano {
         int num = mano[0].getNumero();
         boolean escalera = true;
         ordenarNum(mano);
-        for (int i = 1; i < CANT_CARTAS && escalera; i++) {
+        for (int i = 1; i < CANT_CARTASJUG && escalera; i++) {
             escalera = num + i == mano[i].getNumero();
         }
         return escalera;
@@ -74,7 +74,7 @@ public class AnalizarMano {
         int num = mano[0].getNumero();
         boolean escaleraColor = true;
         ordenarNum(mano);
-        for (int i = 1; i < CANT_CARTAS && escaleraColor; i++) {
+        for (int i = 1; i < CANT_CARTASJUG && escaleraColor; i++) {
             escaleraColor = (mano[0].getPalo() == mano[i].getPalo()) &&
                     (num + i == mano[i].getNumero());
         }
@@ -85,11 +85,11 @@ public class AnalizarMano {
         boolean poker = true;
         ordenarNum(mano);
         if (mano[0].getNumero() == mano[1].getNumero()) {
-            for (int i = 1; i < CANT_CARTAS - 1 && poker; i++) {
+            for (int i = 1; i < CANT_CARTASJUG - 1 && poker; i++) {
                 poker = (mano[0].getNumero() == mano[i].getNumero());
             }
         } else {
-            for (int i = 2; i < CANT_CARTAS && poker; i++) {
+            for (int i = 2; i < CANT_CARTASJUG && poker; i++) {
                 poker = (mano[1].getNumero() == mano[i].getNumero());
             }
         }
@@ -97,40 +97,36 @@ public class AnalizarMano {
     }
 
     public static boolean esFull(Carta[] mano) {
-        return true;
+        return false;
     }
 
-    public static boolean esTrio(Carta[] mano) {
-        boolean trio = false;
+    public static boolean esTrio(Carta[] mano) {  // ARREGLAR
+        boolean trio = true;
         ordenarNum(mano);
-        int cant = 1;
-        for (int i = 0; i < CANT_CARTAS; i++) {
-            if (mano[i].getNumero() == mano[i + 1].getNumero()) {
-                cant++;
-            }
+        for (int i = 0; i < CANT_CARTASJUG-2 &&trio; i++) {
+            trio= mano[i].getNumero() == mano[i + 1].getNumero() && mano[i].getNumero() == mano[i + 2].getNumero();
         }
-        trio = cant == 3;
         return trio;
     }
 
     public static boolean esPareja(Carta[] mano) {
-        boolean pareja = false;
+        boolean pareja;
         ordenarNum(mano);
-        int cant = 1;
-        for (int i = 0; i < CANT_CARTAS; i++) {
+        int parejaSimple =0;
+        for (int i = 0; i < CANT_CARTASJUG-1; i++) {
             if (mano[i].getNumero() == mano[i + 1].getNumero()) {
-                cant++;
+                parejaSimple++;
             }
         }
-        pareja = cant == 2;
+        pareja=parejaSimple==1;
         return pareja;
     }
 
     public static boolean esDoblePareja(Carta[] mano) {
-        boolean doblePareja = false;
+        boolean doblePareja;
         ordenarNum(mano);
         int parejas = 0;
-        for (int i = 0; i < CANT_CARTAS; i++) {
+        for (int i = 0; i <CANT_CARTASJUG-1; i++) {
             if (mano[i].getNumero() == mano[i + 1].getNumero()) {
                 parejas++;
             }
@@ -139,13 +135,13 @@ public class AnalizarMano {
         return doblePareja;
     }
 
-    public static Carta esCartaAlta(Carta[] mano) {
+    public static Boolean esCartaAlta(Carta[] mano) {
         ordenarNum(mano);
-        return mano[(mano.length)-1];
+        return true;
     }
 
     public static Carta[] ordenarNum(Carta[] mano) {
-        ordenarNum(mano, 1, 9);
+        ordenarNum(mano, 0, CANT_CARTASJUG-1);
         return mano;
     }
 

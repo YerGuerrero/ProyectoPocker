@@ -20,7 +20,12 @@ public class Vector implements Comparable<Vector> {
     public void set(int index,int valor){
         this.vector[index]=valor;
     }
-    public int get(int index){
+
+    public int[] getVector() {
+        return vector;
+    }
+
+    public int get( int index){
         return this.vector[index];
     }
 }

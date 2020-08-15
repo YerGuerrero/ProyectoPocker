@@ -1,15 +1,16 @@
 package Juego;
 
 public class Jugador {
-    private Mano mano;
+    private Mano mano= new Mano();
     private int id;
+    private boolean ganar=false;
 
     public void apuestaJugador(){//Preguntar
 
     }
 
-    public void pideCarta(){
-
+    public void pideCarta(Carta carta){
+        mano.getMano().add(carta);
     }
 
     public void botaCarta(){
@@ -26,5 +27,13 @@ public class Jugador {
 
     public int getId() {
         return id;
+    }
+
+    public boolean isGanar() {
+        return ganar;
+    }
+
+    public void setGanar( boolean ganar ) {
+        this.ganar = ganar;
     }
 }
