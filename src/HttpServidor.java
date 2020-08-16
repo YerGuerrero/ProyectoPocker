@@ -19,6 +19,9 @@ public class HttpServidor {
         }else if (nombre.equals("SC")){
             SevenCards sevenCards= new SevenCards();
             sevenCards.jugar();
+        }else if (nombre.equals("FC")){
+            FiveCard fiveCard= new FiveCard();
+            fiveCard.jugar();
         }
 
 

@@ -97,13 +97,13 @@ public class AnalizarMano {
     }
 
     public static boolean esFull(Carta[] mano) {
-        return false;
+        return (esTrio(mano) && esPareja(mano));
     }
 
-    public static boolean esTrio(Carta[] mano) {  // ARREGLAR
-        boolean trio = true;
+    public static boolean esTrio(Carta[] mano) {
+        boolean trio = false;
         ordenarNum(mano);
-        for (int i = 0; i < CANT_CARTASJUG-2 &&trio; i++) {
+        for (int i = 0; i < CANT_CARTASJUG-2 && !trio; i++) {
             trio= mano[i].getNumero() == mano[i + 1].getNumero() && mano[i].getNumero() == mano[i + 2].getNumero();
         }
         return trio;

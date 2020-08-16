@@ -36,13 +36,34 @@ public class Poker extends ModoJuego {
             jugador2.setGanar(true);
         }
         else {
-            empate(pos1,pos2);
+            empate(jugador1.getMano(),jugador2.getMano());
 
         }
     }
 
-    public void empate(int pos1, int pos2){
+    public void empate(Mano mano1, Mano mano2){
+        Carta[] manotemp1=new Carta[mano1.getMano().size()];
+        Carta[] manotemp2=new Carta[mano2.getMano().size()];
+        for(int i=0;i<mano1.getMano().size(); i++){
+            manotemp1[i]=mano1.getMano().get(i);
+        }
 
+        for(int i=0;i<mano2.getMano().size(); i++){
+            manotemp2[i]=mano2.getMano().get(i);
+        }
+        AnalizarMano.ordenarNum(manotemp1,0,mano1.getMano().size()-1);
+        AnalizarMano.ordenarNum(manotemp2,0,mano2.getMano().size()-1);
+
+        if (manotemp1[mano1.getMano().size()-1].getNumero()< manotemp2[(mano2.getMano().size())-1].getNumero()){
+            jugador2.setGanar(true);
+        }
+        else if(manotemp1[mano1.getMano().size()-1].getNumero()> manotemp2[(mano2.getMano().size())-1].getNumero()){
+            jugador1.setGanar(true);
+        }
+        else{
+            jugador1.setGanar(true);
+            jugador2.setGanar(true);
+        }
     }
 
     @Override

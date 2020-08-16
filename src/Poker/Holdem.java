@@ -57,6 +57,8 @@ public class Holdem extends Poker {
         System.out.println("jugador2");
         Vector vector2 =AnalizarMano.analizaMano(jugador2.getMano());
         super.mejorCombinacion(vector1,vector2);
+        System.out.println(jugador1.isGanar());
+        System.out.println(jugador2.isGanar());
 
     }
 }
