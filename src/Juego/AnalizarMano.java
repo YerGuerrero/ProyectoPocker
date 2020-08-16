@@ -3,47 +3,38 @@ package Juego;
 
 public class AnalizarMano {
     private static int TAM_VECTOR = 10;
-    static int  CANT_CARTASJUG;
+    static int CANT_CARTASJUG;
 
-    public static Vector analizaMano( Mano mano ){
-        CANT_CARTASJUG=mano.getMano().size();
-        Carta[] manoCompleta= new Carta[CANT_CARTASJUG];
-        for(int i=0;i<CANT_CARTASJUG; i++){
-            manoCompleta[i]=mano.getMano().get(i);
+    public static Vector analizaMano(Mano mano) {
+        CANT_CARTASJUG = mano.getMano().size();
+        Carta[] manoCompleta = new Carta[CANT_CARTASJUG];
+        for (int i = 0; i < CANT_CARTASJUG; i++) {
+            manoCompleta[i] = mano.getMano().get(i);
         }
-        Vector vector= new Vector(TAM_VECTOR+1);
-        if(esEscaleraReal(manoCompleta)){
-            vector.set(0,1);
+        Vector vector = new Vector(TAM_VECTOR + 1);
+        if (esEscaleraReal(manoCompleta)) {
+            vector.set(0, 1);
+        } else if (esEscaleraColor(manoCompleta)) {
+            vector.set(1, 1);
+        } else if (esPoker(manoCompleta)) {
+            vector.set(2, 1);
+        } else if (esFull(manoCompleta)) {
+            vector.set(3, 1);
+        } else if (esColor(manoCompleta)) {
+            vector.set(4, 1);
+        } else if (esEscalera(manoCompleta)) {
+            vector.set(5, 1);
+        } else if (esTrio(manoCompleta)) {
+            vector.set(6, 1);
+        } else if (esDoblePareja(manoCompleta)) {
+            vector.set(7, 1);
+        } else if (esPareja(manoCompleta)) {
+            vector.set(8, 1);
+        } else if (esCartaAlta(manoCompleta)) {
+            vector.set(9, 1);
         }
-        else if(esEscaleraColor(manoCompleta)){
-            vector.set(1,1);
-        }
-        else if(esPoker(manoCompleta)){
-            vector.set(2,1);
-        }
-        else if(esFull(manoCompleta)){
-            vector.set(3,1);
-        }
-        else if(esColor(manoCompleta)){
-            vector.set(4,1);
-        }
-        else if(esEscalera(manoCompleta)){
-            vector.set(5,1);
-        }
-        else if(esTrio(manoCompleta)){
-            vector.set(6,1);
-        }
-        else if(esDoblePareja(manoCompleta)){
-            vector.set(7,1);
-        }
-        else if(esPareja(manoCompleta)){
-            vector.set(8,1);
-        }
-        else if (esCartaAlta(manoCompleta)){
-            vector.set(9,1);
-        }
-        for (int i=0; i<TAM_VECTOR;i++){
-            System.out.println("Vector:"+ i+" "+vector.get(i));
+        for (int i = 0; i < TAM_VECTOR; i++) {
+            System.out.println("Vector:" + i + " " + vector.get(i));
         }
         return vector;
     }
@@ -103,8 +94,8 @@ public class AnalizarMano {
     public static boolean esTrio(Carta[] mano) {
         boolean trio = false;
         ordenarNum(mano);
-        for (int i = 0; i < CANT_CARTASJUG-2 && !trio; i++) {
-            trio= mano[i].getNumero() == mano[i + 1].getNumero() && mano[i].getNumero() == mano[i + 2].getNumero();
+        for (int i = 0; i < CANT_CARTASJUG - 2 && !trio; i++) {
+            trio = mano[i].getNumero() == mano[i + 1].getNumero() && mano[i].getNumero() == mano[i + 2].getNumero();
         }
         return trio;
     }
@@ -112,13 +103,13 @@ public class AnalizarMano {
     public static boolean esPareja(Carta[] mano) {
         boolean pareja;
         ordenarNum(mano);
-        int parejaSimple =0;
-        for (int i = 0; i < CANT_CARTASJUG-1; i++) {
+        int parejaSimple = 0;
+        for (int i = 0; i < CANT_CARTASJUG - 1; i++) {
             if (mano[i].getNumero() == mano[i + 1].getNumero()) {
                 parejaSimple++;
             }
         }
-        pareja=parejaSimple==1;
+        pareja = parejaSimple == 1;
         return pareja;
     }
 
@@ -126,7 +117,7 @@ public class AnalizarMano {
         boolean doblePareja;
         ordenarNum(mano);
         int parejas = 0;
-        for (int i = 0; i <CANT_CARTASJUG-1; i++) {
+        for (int i = 0; i < CANT_CARTASJUG - 1; i++) {
             if (mano[i].getNumero() == mano[i + 1].getNumero()) {
                 parejas++;
             }
@@ -141,7 +132,7 @@ public class AnalizarMano {
     }
 
     public static Carta[] ordenarNum(Carta[] mano) {
-        ordenarNum(mano, 0, CANT_CARTASJUG-1);
+        ordenarNum(mano, 0, CANT_CARTASJUG - 1);
         return mano;
     }
 
@@ -155,7 +146,7 @@ public class AnalizarMano {
 
     public static int particion(Carta[] ordenar, int inicio, int ultimo) {
         int privote = ordenar[ultimo].getNumero();
-        int i = inicio-1;
+        int i = inicio - 1;
 
         for (int j = inicio; j < ultimo; j++) {
             if (ordenar[j].getNumero() <= privote) {
