@@ -26,7 +26,7 @@ public class Combinaciones {
     }
 
     public void posiblesCombinaciones(ArrayList<Integer> listaNumeros, int n, int combinacion) {
-        ArrayList<Integer> nLista = new ArrayList<Integer>();
+        ArrayList<Integer> nLista = new ArrayList<>();
         for (int i = 0; i < 1 << n; i++) {
             if (BigInteger.valueOf(combinacion).testBit(i)){
                 nLista.add(listaNumeros.get(i));

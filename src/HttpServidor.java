@@ -22,7 +22,11 @@ public class HttpServidor {
         }else if (nombre.equals("FC")){
             FiveCard fiveCard= new FiveCard();
             fiveCard.jugar();
+        }else if (nombre.equals("O")){
+            Omaha omaha= new Omaha();
+            omaha.jugar();
         }
+
 
 
     }

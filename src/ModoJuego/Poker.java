@@ -30,6 +30,8 @@ public class Poker extends ModoJuego {
                 pos2=i;
             }
         }
+
+        // Corregir
         if (pos1<pos2){
             jugador1.setGanar(true);
         }else if (pos1>pos2){
