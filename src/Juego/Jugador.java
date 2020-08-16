@@ -20,27 +20,25 @@ public class Jugador {
     public int botaCarta(){
         Scanner cartas= new Scanner(System.in);
         String temp= cartas.nextLine();
-        System.out.println("Vefgf");
         String[] vectorScanner= temp.split(",");
-
-        System.out.println("tamaño:"+vectorScanner.length);
         Carta[] vectorCartas= new Carta[vectorScanner.length];
         for(int i=0; i< vectorScanner.length;i++){
             String [] vectorTemp= vectorScanner[i].split(" ");
-            System.out.println("llega aqui");
             Carta carta=new Carta(Integer.parseInt(vectorTemp[0]),Integer.parseInt(vectorTemp[1]));
             vectorCartas[i]=carta;
         }
         int numCartasBota= vectorCartas.length;
         int contador=0;
+        int[] eliminar=new int[vectorCartas.length];
+        int n=0;
         for (int i=0;i<mano.getMano().size()-1;i++){
-            while(contador < vectorScanner.length &&(!(mano.getMano().get(i).compareTo(vectorCartas[contador]) == 0))){
-                    contador++;
+            if(contador< vectorCartas.length && (mano.getMano().get(i).compareTo(vectorCartas[contador]) == 0)){
+                eliminar[n]=mano.getMano().indexOf(mano.getMano().get(i));
+                contador++;
             }
-            if (mano.getMano().get(i).compareTo(vectorCartas[contador]) == 0) {
-                mano.getMano().remove(i);
-                i--;
-            }
+        }
+        for (int j : eliminar) {
+            mano.getMano().remove(j);
         }
         return numCartasBota;
     }
