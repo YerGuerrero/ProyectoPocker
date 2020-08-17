@@ -1,5 +1,6 @@
 package Juego;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,21 +25,33 @@ public class Jugador {
         Carta[] vectorCartas= new Carta[vectorScanner.length];
         for(int i=0; i< vectorScanner.length;i++){
             String [] vectorTemp= vectorScanner[i].split(" ");
-            Carta carta=new Carta(Integer.parseInt(vectorTemp[0]),Integer.parseInt(vectorTemp[1]));
+            Carta carta=new Carta(Integer.parseInt(vectorTemp[1]),Integer.parseInt(vectorTemp[0]));
             vectorCartas[i]=carta;
         }
+
+        for (int i = 0; i < vectorCartas.length; i++) {
+            System.out.println("VectoresBota:" +vectorCartas[i].getNumero()+vectorCartas[i].getPalo());
+        }
         int numCartasBota= vectorCartas.length;
-        int contador=0;
         int[] eliminar=new int[vectorCartas.length];
         int n=0;
-        for (int i=0;i<mano.getMano().size()-1;i++){
-            if(contador< vectorCartas.length && (mano.getMano().get(i).compareTo(vectorCartas[contador]) == 0)){
-                eliminar[n]=mano.getMano().indexOf(mano.getMano().get(i));
-                contador++;
+        for (int i=0;i<mano.getMano().size();i++){
+            for (int j = 0; j < vectorCartas.length; j++) {
+                if( mano.getMano().get(i).compareTo(vectorCartas[j]) == 0){
+                    System.out.println("hol:"+mano.getMano().indexOf(mano.getMano().get(i)));
+                    eliminar[n]=mano.getMano().indexOf(mano.getMano().get(i));
+                    n++;
+                }
             }
         }
-        for (int j : eliminar) {
-            mano.getMano().remove(j);
+
+        int cont=0;
+        for (int j=0; j< eliminar.length;j++) {
+            System.out.println(eliminar[j]);
+            mano.getMano().remove((eliminar[j]-cont));
+            System.out.println("holii"+ (eliminar[j]-cont) );
+            System.out.println("Contador"+cont);
+            cont++;
         }
         return numCartasBota;
     }
