@@ -35,7 +35,7 @@ public class Omaha extends Poker {
 
         System.out.println("ApuestaPrimero");
 
-        apuestas.ronda(primerApuesta);
+        //apuestas.ronda(primerApuesta);
         primerApuesta = false;
 
         //apuesta
@@ -49,13 +49,13 @@ public class Omaha extends Poker {
         jugador2.pideCarta(mesa[0]);
         jugador2.pideCarta(mesa[1]);
         jugador2.pideCarta(mesa[2]);
-        apuestas.ronda(primerApuesta);
+        //apuestas.ronda(primerApuesta);
         jugador1.pideCarta(mesa[3]);
         jugador2.pideCarta(mesa[3]);
-        apuestas.ronda(primerApuesta);
+        //apuestas.ronda(primerApuesta);
         jugador1.pideCarta(mesa[4]);
         jugador2.pideCarta(mesa[4]);
-        apuestas.ronda(primerApuesta);
+        //apuestas.ronda(primerApuesta);
         ArrayList<Carta> manoTemp = jugador1.getMano().getMano();
         ArrayList<Carta> manoTemp2 = jugador2.getMano().getMano();
         for (Carta carta : manoTemp) {

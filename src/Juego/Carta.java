@@ -30,4 +30,9 @@ public class Carta implements Comparable<Carta>{
     public int compareTo( Carta carta ) {
         return this.getOrdinal()- carta.getOrdinal();
     }
+
+    public String toString(){
+        String string=new String(String.valueOf(numero+"-"+palo));
+        return string;
+    }
 }

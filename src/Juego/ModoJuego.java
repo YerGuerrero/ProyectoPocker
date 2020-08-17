@@ -14,9 +14,9 @@ public class ModoJuego {
         jugador2=new Jugador();
         baraja= new Baraja();
         ArrayList<Carta> temp =baraja.getBaraja();
-        for (int i=0; i<52;i++){
+        /*for (int i=0; i<52;i++){
             System.out.println("carta: "+temp.get(i).getNumero()+temp.get(i).getPalo());
-        }
+        }*/
 
 
     }

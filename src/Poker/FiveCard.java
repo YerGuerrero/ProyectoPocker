@@ -48,7 +48,7 @@ public class FiveCard extends Poker {
 
         System.out.println("ApuestaPrimero");
 
-        apuestas.ronda(primerApuesta);
+        //apuestas.ronda(primerApuesta);
         primerApuesta=false;
         //apuesta
 
@@ -60,6 +60,7 @@ public class FiveCard extends Poker {
         if (temp1.equals("Si")||temp1.equals("si")){
             System.out.println("entra jug1");
             cantBota1=jugador1.botaCarta();
+
         }
 
         System.out.println("Jugador dos quiere botar:");
@@ -76,7 +77,7 @@ public class FiveCard extends Poker {
             jugador2.getMano().getMano().add(baraja.siguiente());
         }
 
-        apuestas.ronda(primerApuesta);
+        //apuestas.ronda(primerApuesta);
 
         System.out.println("llega todo bien");
         ArrayList<Carta> manoTemp3 = jugador1.getMano().getMano();

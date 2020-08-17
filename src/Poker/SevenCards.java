@@ -3,10 +3,10 @@ package Poker;
 import Combinaciones.Combinaciones;
 import Juego.*;
 import ModoJuego.Poker;
-import Poker.Apuestas;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class SevenCards extends Poker {
     private Jugador jugador1;
@@ -24,34 +24,123 @@ public class SevenCards extends Poker {
     @Override
     public void jugar() {
 
-        System.out.println("Sevencard");
         Apuestas apuestas = new Apuestas();
         Random rand = new Random();
         int num = rand.nextInt(5);
+
+        String entrada1;
+        String entrada2;
         //2 cartas
-        System.out.println("Inicia" + num);
         if (num % 2 == 0) {//Jugador 2-> true
             apuestas.setDealer(true);
             baraja.repartir(7, jugador1, jugador2);
+            System.out.println("Cartas Jugador1: "+jugador1.getMano().getMano().get(0).toString()+"| "+jugador1.getMano().getMano().get(1).toString());
+            System.out.println("Cartas Jugador2: "+jugador2.getMano().getMano().get(0).toString()+"| "+jugador2.getMano().getMano().get(1).toString());
+            System.out.println("Jugador 1 quiere apostar?");
+            Scanner scanner1=new Scanner(System.in);
+            entrada1= scanner1.nextLine();
+            if (entrada1.equals("si")){
+                apuestas.ronda(1,primerApuesta);
+            }
+            System.out.println("Jugador 2 quiere apostar?");
+            Scanner scanner2=new Scanner(System.in);
+            entrada2= scanner2.nextLine();
+            if (entrada2.equals("si")){
+                apuestas.ronda(2,primerApuesta);
+            }
         } else {
             baraja.repartir(7, jugador2, jugador1);
+            System.out.println("Cartas Jugador1: "+jugador1.getMano().getMano().get(0).toString()+"| "+jugador1.getMano().getMano().get(1).toString());
+            System.out.println("Cartas Jugador2: "+jugador2.getMano().getMano().get(0).toString()+"| "+jugador2.getMano().getMano().get(1).toString());
+            System.out.println("Jugador 2 quiere apostar?");
+            Scanner scanner2=new Scanner(System.in);
+            entrada2= scanner2.nextLine();
+            System.out.println("Jugador 1 quiere apostar?");
+            Scanner scanner1=new Scanner(System.in);
+            entrada1= scanner1.nextLine();
         }
 
-        System.out.println("ApuestaPrimero");
+        //Apuesta
 
-        apuestas.ronda(primerApuesta);
         primerApuesta = false;
 
+
         //3 cartas
+        System.out.println("Cartas Jugador1: "+jugador1.getMano().getMano().get(0).toString()+"| "+jugador1.getMano().getMano().get(1).toString()+"| "+jugador1.getMano().getMano().get(2).toString()+"| "+jugador1.getMano().getMano().get(3).toString()+"| "+jugador1.getMano().getMano().get(4).toString());
+        System.out.println("Cartas Jugador2: "+jugador2.getMano().getMano().get(0).toString()+"| "+jugador2.getMano().getMano().get(1).toString()+"| "+jugador2.getMano().getMano().get(2).toString()+"| "+jugador2.getMano().getMano().get(3).toString()+"| "+jugador2.getMano().getMano().get(4).toString());
 
-
-        apuestas.ronda(primerApuesta);
+        //Apuesta
+        if (apuestas.isDealer()){
+            System.out.println("Jugador 1 quiere apostar?");
+            Scanner scanner1=new Scanner(System.in);
+            entrada1= scanner1.nextLine();
+            if (entrada1.equals("si")){
+                apuestas.ronda(1,primerApuesta);
+            }
+            System.out.println("Jugador 2 quiere apostar?");
+            Scanner scanner2=new Scanner(System.in);
+            entrada2= scanner2.nextLine();
+            if (entrada2.equals("si")){
+                apuestas.ronda(2,primerApuesta);
+            }
+        }
+        else {
+            System.out.println("Jugador 1 quiere apostar?");
+            Scanner scanner1=new Scanner(System.in);
+            entrada1= scanner1.nextLine();
+            if (entrada1.equals("si")){
+                apuestas.ronda(1,primerApuesta);
+            }
+            System.out.println("Jugador 2 quiere apostar?");
+            Scanner scanner2=new Scanner(System.in);
+            entrada2= scanner2.nextLine();
+            if (entrada2.equals("si")){
+                apuestas.ronda(2,primerApuesta);
+            }
+        }
         //1 carta
+        System.out.println("Cartas Jugador1: "+jugador1.getMano().getMano().get(0).toString()+"| "+jugador1.getMano().getMano().get(1).toString()+"| "+jugador1.getMano().getMano().get(2).toString()+"| "+jugador1.getMano().getMano().get(3).toString()+"| "+jugador1.getMano().getMano().get(4).toString()+"| "+jugador1.getMano().getMano().get(5).toString());
+        System.out.println("Cartas Jugador2: "+jugador2.getMano().getMano().get(0).toString()+"| "+jugador2.getMano().getMano().get(1).toString()+"| "+jugador2.getMano().getMano().get(2).toString()+"| "+jugador2.getMano().getMano().get(3).toString()+"| "+jugador2.getMano().getMano().get(4).toString()+"| "+jugador2.getMano().getMano().get(5).toString());
 
-        apuestas.ronda(primerApuesta);
+        //Apuesta
+        if (apuestas.isDealer()){
+            System.out.println("Jugador 1 quiere apostar?");
+            Scanner scanner1=new Scanner(System.in);
+            entrada1= scanner1.nextLine();
+            if (entrada1.equals("si")){
+                apuestas.ronda(1,primerApuesta);
+            }
+        }
+        else {
+            System.out.println("Jugador 2 quiere apostar?");
+            Scanner scanner2=new Scanner(System.in);
+            entrada2= scanner2.nextLine();
+            if (entrada2.equals("si")){
+                apuestas.ronda(2,primerApuesta);
+            }
+        }
+
         //1 carta
+        System.out.println("Cartas Jugador1: "+jugador1.getMano().getMano().get(0).toString()+" "+jugador1.getMano().getMano().get(1).toString()+" "+jugador1.getMano().getMano().get(2).toString()+" "+jugador1.getMano().getMano().get(3).toString()+" "+jugador1.getMano().getMano().get(4).toString()+" "+jugador1.getMano().getMano().get(5).toString()+" "+jugador1.getMano().getMano().get(6).toString());
+        System.out.println("Cartas Jugador2: "+jugador2.getMano().getMano().get(0).toString()+" "+jugador2.getMano().getMano().get(1).toString()+" "+jugador2.getMano().getMano().get(2).toString()+" "+jugador2.getMano().getMano().get(3).toString()+" "+jugador2.getMano().getMano().get(4).toString()+" "+jugador2.getMano().getMano().get(5).toString()+" "+jugador2.getMano().getMano().get(6).toString());
 
-        apuestas.ronda(primerApuesta);
+        //Apuesta
+        if (apuestas.isDealer()){
+            System.out.println("Jugador 1 quiere apostar?");
+            Scanner scanner1=new Scanner(System.in);
+            entrada1= scanner1.nextLine();
+            if (entrada1.equals("si")){
+                apuestas.ronda(1,primerApuesta);
+            }
+        }
+        else {
+            System.out.println("Jugador 2 quiere apostar?");
+            Scanner scanner2=new Scanner(System.in);
+            entrada2= scanner2.nextLine();
+            if (entrada2.equals("si")){
+                apuestas.ronda(2,primerApuesta);
+            }
+        }
 
         ArrayList<Carta> manoTemp = jugador1.getMano().getMano();
         ArrayList<Carta> manoTemp2 = jugador2.getMano().getMano();

@@ -29,16 +29,13 @@ public class Jugador {
             vectorCartas[i]=carta;
         }
 
-        for (int i = 0; i < vectorCartas.length; i++) {
-            System.out.println("VectoresBota:" +vectorCartas[i].getNumero()+vectorCartas[i].getPalo());
-        }
+
         int numCartasBota= vectorCartas.length;
         int[] eliminar=new int[vectorCartas.length];
         int n=0;
         for (int i=0;i<mano.getMano().size();i++){
             for (int j = 0; j < vectorCartas.length; j++) {
                 if( mano.getMano().get(i).compareTo(vectorCartas[j]) == 0){
-                    System.out.println("hol:"+mano.getMano().indexOf(mano.getMano().get(i)));
                     eliminar[n]=mano.getMano().indexOf(mano.getMano().get(i));
                     n++;
                 }
@@ -47,11 +44,12 @@ public class Jugador {
 
         int cont=0;
         for (int j=0; j< eliminar.length;j++) {
-            System.out.println(eliminar[j]);
             mano.getMano().remove((eliminar[j]-cont));
-            System.out.println("holii"+ (eliminar[j]-cont) );
-            System.out.println("Contador"+cont);
             cont++;
+        }
+
+        for (int i = 0; i < vectorCartas.length; i++) {
+            System.out.println("Cartas botadas:" +vectorCartas[i].getNumero()+vectorCartas[i].getPalo());
         }
         return numCartasBota;
     }

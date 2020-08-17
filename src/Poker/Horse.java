@@ -14,7 +14,7 @@ public class Horse extends Poker {
 
     public Horse() {
         this.jugador1=super.getJugador1();
-        this.jugador2=super.getJugador2();
+        this.jugador2=super.getJugador2() ;
         this.baraja=super.getBaraja();
         this.primerApuesta=super.isPrimerApuesta();
     }
@@ -43,20 +43,6 @@ public class Horse extends Poker {
             SevenCards sevenCards= new SevenCards();
             sevenCards.jugar();
         }
-
-       /* for (int i = 0; i <cantManos; i++) {
-            Holdem holdem= new Holdem();
-            holdem.jugar();
-            Omaha omaha= new Omaha();
-            omaha.jugar();
-            FiveCard fiveCard= new FiveCard();
-            fiveCard.jugar();
-            SevenCards sevenCards= new SevenCards();
-            sevenCards.jugar();
-            Holdem holdem2= new Holdem();
-            holdem2.jugar();
-        }*/
-
     }
 
 
