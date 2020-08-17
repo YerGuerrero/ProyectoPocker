@@ -13,34 +13,34 @@ public class Horse extends Poker {
     private boolean primerApuesta;
 
     public Horse() {
-        this.jugador1=super.getJugador1();
-        this.jugador2=super.getJugador2() ;
-        this.baraja=super.getBaraja();
-        this.primerApuesta=super.isPrimerApuesta();
+        this.jugador1 = super.getJugador1();
+        this.jugador2 = super.getJugador2();
+        this.baraja = super.getBaraja();
+        this.primerApuesta = super.isPrimerApuesta();
     }
 
     @Override
-    public void jugar( ) {
-        Scanner scanner=new Scanner(System.in);
-        int cantManos= scanner.nextInt();
+    public void jugar() {
+        Scanner scanner = new Scanner(System.in);
+        int cantManos = scanner.nextInt();
         for (int i = 0; i < cantManos; i++) {
             System.out.println("Holdem");
-            Holdem holdem= new Holdem();
+            Holdem holdem = new Holdem();
             holdem.jugar();
         }
         for (int i = 0; i < cantManos; i++) {
             System.out.println("Omaha");
-            Omaha omaha= new Omaha();
+            Omaha omaha = new Omaha();
             omaha.jugar();
         }
         for (int i = 0; i < cantManos; i++) {
             System.out.println("FiveCard");
-            FiveCard fiveCard= new FiveCard();
+            FiveCard fiveCard = new FiveCard();
             fiveCard.jugar();
         }
         for (int i = 0; i < cantManos; i++) {
             System.out.println("SevenCard");
-            SevenCards sevenCards= new SevenCards();
+            SevenCards sevenCards = new SevenCards();
             sevenCards.jugar();
         }
     }

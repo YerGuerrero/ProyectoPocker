@@ -1,15 +1,15 @@
 package Juego;
 
-public class Carta implements Comparable<Carta>{
+public class Carta implements Comparable<Carta> {
     private int palo;
     private int numero;
 
     public Carta(int numero) {
-        this.palo = (numero/13);
-        this.numero = (numero%13);
+        this.palo = (numero / 13);
+        this.numero = (numero % 13);
     }
 
-    public Carta( int  palo, int numero ) {
+    public Carta(int palo, int numero) {
         this.palo = palo;
         this.numero = numero;
     }
@@ -22,17 +22,17 @@ public class Carta implements Comparable<Carta>{
         return numero;
     }
 
-    public int getOrdinal(){
-        return (palo*13+this.numero);
+    public int getOrdinal() {
+        return (palo * 13 + this.numero);
     }
 
     @Override
-    public int compareTo( Carta carta ) {
-        return this.getOrdinal()- carta.getOrdinal();
+    public int compareTo(Carta carta) {
+        return this.getOrdinal() - carta.getOrdinal();
     }
 
-    public String toString(){
-        String string=new String(String.valueOf(numero+"-"+palo));
+    public String toString() {
+        String string = new String(String.valueOf(numero + "-" + palo));
         return string;
     }
 }

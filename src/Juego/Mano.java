@@ -3,8 +3,8 @@ package Juego;
 import java.util.ArrayList;
 
 public class Mano {
-    private ArrayList<Carta> mano=new ArrayList<>();
-    Vector vector= new Vector(6);
+    private ArrayList<Carta> mano = new ArrayList<>();
+    Vector vector = new Vector(6);
 
     public Mano() {
     }
@@ -13,7 +13,7 @@ public class Mano {
         return mano;
     }
 
-    public void setMano( ArrayList<Carta> mano ) {
+    public void setMano(ArrayList<Carta> mano) {
         this.mano = mano;
     }
 }

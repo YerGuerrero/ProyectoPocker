@@ -1,6 +1,5 @@
 package Juego;
 
-
 public class AnalizarMano {
     private static int TAM_VECTOR = 10;
     static int CANT_CARTASJUG;
@@ -161,5 +160,4 @@ public class AnalizarMano {
         ordenar[ultimo] = swapTemp;
         return i + 1;
     }
-
 }
