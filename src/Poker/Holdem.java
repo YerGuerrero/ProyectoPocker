@@ -5,23 +5,42 @@ import Juego.*;
 import ModoJuego.Poker;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Holdem extends Poker {
     private Jugador jugador1;
     private Jugador jugador2;
     private Baraja baraja;
+    private boolean primerApuesta;
 
     public Holdem() {
         this.jugador1=super.getJugador1();
         this.jugador2=super.getJugador2();
         this.baraja=super.getBaraja();
+        this.primerApuesta=super.isPrimerApuesta();
     }
 
     @Override
     public void jugar() {
-        System.out.println("Holdem");
-       baraja.repartir(2,jugador1,jugador2);
+        Apuestas apuestas=new Apuestas();
+        Random rand= new Random();
+        int num= rand.nextInt(5);
+        //2 cartas
+        System.out.println("Inicia"+num);
+        if (num % 2 == 0) {//Jugador 2-> true
+            apuestas.setDealer(true);
+            baraja.repartir(2,jugador1,jugador2);
+        }else {
+            baraja.repartir(2,jugador2,jugador1);
+        }
+
+        System.out.println("ApuestaPrimero");
+
+        apuestas.ronda(primerApuesta);
+        primerApuesta=false;
+
        //apuesta
+
         Carta[] mesa= new Carta[5];
         for (int i=0; i<5;i++){
             mesa[i]= baraja.siguiente();
@@ -32,12 +51,17 @@ public class Holdem extends Poker {
         jugador2.pideCarta(mesa[0]);
         jugador2.pideCarta(mesa[1]);
         jugador2.pideCarta(mesa[2]);
-        //Apuesta
+
+        apuestas.ronda(primerApuesta);
+
         jugador1.pideCarta(mesa[3]);
         jugador2.pideCarta(mesa[3]);
-        //Apuesta
+        apuestas.ronda(primerApuesta);
+
         jugador1.pideCarta(mesa[4]);
         jugador2.pideCarta(mesa[4]);
+        apuestas.ronda(primerApuesta);
+
         System.out.println("llega todo bien");
 
         ArrayList<Carta> manoTemp = jugador1.getMano().getMano();

@@ -1,7 +1,11 @@
 package Juego;
 
+import Poker.Apuestas;
+import Poker.Apuestas.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 
 public class Baraja {

@@ -2,10 +2,13 @@ package ModoJuego;
 
 import Juego.*;
 
+import java.util.Random;
+
 public class Poker extends ModoJuego {
     Jugador jugador1;
     Jugador jugador2;
     Baraja baraja;
+    boolean primerApuesta=true;
 
     public Poker() {
         this.jugador1=super.getJugador1();
@@ -68,6 +71,10 @@ public class Poker extends ModoJuego {
         }
     }
 
+    public void apostar(){
+
+    }
+
     @Override
     public Jugador getJugador1() {
         return jugador1;
@@ -81,5 +88,9 @@ public class Poker extends ModoJuego {
     @Override
     public Baraja getBaraja() {
         return baraja;
+    }
+
+    public boolean isPrimerApuesta() {
+        return primerApuesta;
     }
 }

@@ -26,6 +26,10 @@ public class HttpServidor {
             Omaha omaha= new Omaha();
             omaha.jugar();
         }
+        else if (nombre.equals("HO")){
+            Horse horse = new Horse();
+            horse.jugar();
+        }
 
 
 
