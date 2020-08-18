@@ -2,7 +2,6 @@ package ModoJuego;
 
 import Juego.*;
 
-import java.util.Random;
 
 public class Poker extends ModoJuego {
     Jugador jugador1;
@@ -36,7 +35,6 @@ public class Poker extends ModoJuego {
             }
         }
 
-        // Corregir
         if (pos1 < pos2) {
             jugador1.setGanar(true);
         } else if (pos1 > pos2) {

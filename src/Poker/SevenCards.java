@@ -95,7 +95,6 @@ public class SevenCards extends Poker {
 
         primerApuesta = false;
 
-
         //3 cartas
         //Imprime cartas
         System.out.print("\n"+"Cartas Jugador1: ");
@@ -361,7 +360,5 @@ public class SevenCards extends Poker {
             apuestas.setDineroJugador1(apuestas.getDineroJugador1() +apuestas.getTotalApuesta());
             System.out.println("Dinero Jugador 1: "+apuestas.getDineroJugador1()+"\n");
         }
-
-
     }
 }

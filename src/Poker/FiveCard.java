@@ -2,8 +2,6 @@ package Poker;
 
 import Juego.*;
 import ModoJuego.Poker;
-
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -161,7 +159,6 @@ public class FiveCard extends Poker {
         }
 
         //Combina
-
         Vector vector1 = AnalizarMano.analizaMano(jugador1.getMano());
         Vector vector2 = AnalizarMano.analizaMano(jugador2.getMano());
         super.mejorCombinacion(vector1, vector2);

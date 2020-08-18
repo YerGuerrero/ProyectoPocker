@@ -13,7 +13,6 @@ public class ModoJuego {
         jugador1 = new Jugador();
         jugador2 = new Jugador();
         baraja = new Baraja();
-        ArrayList<Carta> temp = baraja.getBaraja();
     }
 
     public void jugar() {

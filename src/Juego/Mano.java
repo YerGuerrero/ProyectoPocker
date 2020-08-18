@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Mano {
     private ArrayList<Carta> mano = new ArrayList<>();
-    Vector vector = new Vector(6);
 
     public Mano() {
     }

@@ -30,7 +30,6 @@ public class Holdem extends Poker {
         String entrada2;
 
         //2 cartas
-
         if (num % 2 == 0) {//Jugador 2-> true
             apuestas.setDealer(true);
             baraja.repartir(2, jugador1, jugador2);
@@ -227,7 +226,6 @@ public class Holdem extends Poker {
                 apuestas.ronda(2,primerApuesta);
             }
         }
-
 
         //Imprime cartas
         System.out.print("\n"+"Cartas Jugador 1: ");

@@ -80,7 +80,7 @@ public class Horse extends Poker {
         System.out.println("---------------------------");
         System.out.println(" Siguiente modo de Juego");
         System.out.println("---------------------------");
-        System.out.println("\n"+"*** Holdem ***");
+        System.out.println("\n"+"*** Hold'em ***");
         for (int i = 0; i < cantManos; i++) {
             Holdem holdem = new Holdem();
             holdem.jugar();
@@ -89,7 +89,6 @@ public class Horse extends Poker {
                 System.out.println(" Nueva Partida");
                 System.out.println("-----------------");
             }
-
         }
 
     }

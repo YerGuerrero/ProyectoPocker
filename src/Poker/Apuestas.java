@@ -64,10 +64,6 @@ public class Apuestas {
         }
     }
 
-    public void ciega() {
-
-    }
-
     public void setDealer(boolean dealer) {
         this.dealer = dealer;
     }
