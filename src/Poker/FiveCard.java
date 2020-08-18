@@ -90,7 +90,7 @@ public class FiveCard extends Poker {
         Scanner entradaJug1 = new Scanner(System.in);
         String temp1 = entradaJug1.nextLine();
         if (temp1.equals("Si") || temp1.equals("si")) {
-            System.out.println("\n"+"Digite las cartas a botar. Ejemplo: 1 2,3 4,... ");
+            System.out.print("\n"+"Digite las cartas a botar. Ejemplo: 1-2,13-4,... ");
             cantBota1 = jugador1.botaCarta();
 
         }
@@ -99,7 +99,7 @@ public class FiveCard extends Poker {
         Scanner entradaJug2 = new Scanner(System.in);
         String temp2 = entradaJug2.nextLine();
         if (temp2.equals("Si") || temp2.equals("si")) {
-            System.out.println("\n"+"Digite las cartas a botar. Ejemplo: 1 2,3 4,... ");
+            System.out.println("\n"+"Digite las cartas a botar. Ejemplo: 1-2,13-4,... ");
             cantBota2 = jugador2.botaCarta();
         }
 
@@ -169,20 +169,41 @@ public class FiveCard extends Poker {
         if (jugador1.isGanar()&&jugador2.isGanar()){
             System.out.println("\n"+"\n"+"----------");
             System.out.println("  Empate");
-            System.out.println("----------");
+            System.out.println("----------"+"\n");
+            if (isCartaAlta()){
+                jugadaGanadora(9);
+            }else {
+                jugadaGanadora(getPos1());
+            }
+            int mitad=apuestas.getTotalApuesta()/2;
+            apuestas.setDineroJugador1(apuestas.getDineroJugador1() +mitad);
+            apuestas.setDineroJugador2(apuestas.getDineroJugador2() +mitad);
+            System.out.println("Dinero Jugador 1: "+apuestas.getDineroJugador1());
+            System.out.println("Dinero Jugador 2: "+apuestas.getDineroJugador2()+"\n");
         }
         else if (jugador2.isGanar()){
             System.out.println("\n"+"\n"+"-----------------------");
             System.out.println("  Ganador: Jugador 2");
-            System.out.println("-----------------------");
+            System.out.println("-----------------------"+"\n");
+            if (isCartaAlta()){
+                jugadaGanadora(9);
+            }else {
+                jugadaGanadora(getPos2());
+            }
+            apuestas.setDineroJugador2(apuestas.getDineroJugador2() +apuestas.getTotalApuesta());
+            System.out.println("Dinero Jugador 2: "+apuestas.getDineroJugador2()+"\n");
         }
         else if (jugador1.isGanar()){
             System.out.println("\n"+"\n"+"-----------------------");
             System.out.println("  Ganador: Jugador 1");
-            System.out.println("-----------------------");
+            System.out.println("-----------------------"+"\n");
+            if (isCartaAlta()){
+                jugadaGanadora(9);
+            }else {
+                jugadaGanadora(getPos1());
+            }
+            apuestas.setDineroJugador1(apuestas.getDineroJugador1() +apuestas.getTotalApuesta());
+            System.out.println("Dinero Jugador 1: "+apuestas.getDineroJugador1()+"\n");
         }
-
     }
-
-
 }

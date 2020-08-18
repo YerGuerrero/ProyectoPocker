@@ -40,7 +40,6 @@ public class Horse extends Poker {
         System.out.println("---------------------------");
         System.out.println("\n"+"*** Omaha ***");
         for (int i = 0; i < cantManos; i++) {
-            System.out.println("Omaha");
             Omaha omaha = new Omaha();
             omaha.jugar();
             if(i!=cantManos-1){

@@ -24,8 +24,8 @@ public class Jugador {
         String[] vectorScanner = temp.split(",");
         Carta[] vectorCartas = new Carta[vectorScanner.length];
         for (int i = 0; i < vectorScanner.length; i++) {
-            String[] vectorTemp = vectorScanner[i].split(" ");
-            Carta carta = new Carta(Integer.parseInt(vectorTemp[1]), Integer.parseInt(vectorTemp[0]));
+            String[] vectorTemp = vectorScanner[i].split("-");
+            Carta carta = new Carta(Integer.parseInt(vectorTemp[1]), Integer.parseInt(vectorTemp[0])-1);
             vectorCartas[i] = carta;
         }
 
@@ -47,8 +47,9 @@ public class Jugador {
             cont++;
         }
 
+        System.out.print("\n"+"Cartas botadas: ");
         for (int i = 0; i < vectorCartas.length; i++) {
-            System.out.println("Cartas botadas:" + vectorCartas[i].getNumero() + vectorCartas[i].getPalo());
+            System.out.print((vectorCartas[i].getNumero()+1) +"-"+ vectorCartas[i].getPalo()+"| ");
         }
         return numCartasBota;
     }
