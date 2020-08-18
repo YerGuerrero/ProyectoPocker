@@ -32,7 +32,7 @@ public class Carta implements Comparable<Carta> {
     }
 
     public String toString() {
-        String string = new String(String.valueOf(numero + "-" + palo));
+        String string = new String(String.valueOf(numero+1 + "-" + palo));
         return string;
     }
 }

@@ -21,29 +21,77 @@ public class Horse extends Poker {
 
     @Override
     public void jugar() {
+        System.out.println("Digite la cantidad de partidas que va a jugar por modo de juego:");
         Scanner scanner = new Scanner(System.in);
         int cantManos = scanner.nextInt();
+        System.out.println("\n"+"*** Holdem ***");
         for (int i = 0; i < cantManos; i++) {
-            System.out.println("Holdem");
             Holdem holdem = new Holdem();
             holdem.jugar();
+            if(i!=cantManos-1){
+                System.out.println("-----------------");
+                System.out.println(" Nueva Partida");
+                System.out.println("-----------------");
+            }
+
+
         }
+        System.out.println("---------------------------");
+        System.out.println(" Siguiente modo de Juego");
+        System.out.println("---------------------------");
+        System.out.println("\n"+"*** Omaha ***");
         for (int i = 0; i < cantManos; i++) {
             System.out.println("Omaha");
             Omaha omaha = new Omaha();
             omaha.jugar();
+            if(i!=cantManos-1){
+                System.out.println("-----------------");
+                System.out.println(" Nueva Partida");
+                System.out.println("-----------------");
+            }
         }
+
+        System.out.println("---------------------------");
+        System.out.println(" Siguiente modo de Juego");
+        System.out.println("---------------------------");
+        System.out.println("\n"+"*** Five Cards ***");
         for (int i = 0; i < cantManos; i++) {
-            System.out.println("FiveCard");
             FiveCard fiveCard = new FiveCard();
             fiveCard.jugar();
+            if(i!=cantManos-1){
+                System.out.println("-----------------");
+                System.out.println(" Nueva Partida");
+                System.out.println("-----------------");
+            }
         }
+
+        System.out.println("---------------------------");
+        System.out.println(" Siguiente modo de Juego");
+        System.out.println("---------------------------");
+        System.out.println("\n"+"*** Seven Cards ***");
         for (int i = 0; i < cantManos; i++) {
-            System.out.println("SevenCard");
             SevenCards sevenCards = new SevenCards();
             sevenCards.jugar();
+            if(i!=cantManos-1){
+                System.out.println("-----------------");
+                System.out.println(" Nueva Partida");
+                System.out.println("-----------------");
+            }
         }
+        System.out.println("---------------------------");
+        System.out.println(" Siguiente modo de Juego");
+        System.out.println("---------------------------");
+        System.out.println("\n"+"*** Holdem ***");
+        for (int i = 0; i < cantManos; i++) {
+            Holdem holdem = new Holdem();
+            holdem.jugar();
+            if(i!=cantManos-1){
+                System.out.println("-----------------");
+                System.out.println(" Nueva Partida");
+                System.out.println("-----------------");
+            }
+
+        }
+
     }
-
-
 }

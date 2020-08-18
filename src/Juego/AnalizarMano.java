@@ -32,9 +32,6 @@ public class AnalizarMano {
         } else if (esCartaAlta(manoCompleta)) {
             vector.set(9, 1);
         }
-        for (int i = 0; i < TAM_VECTOR; i++) {
-            System.out.println("Vector:" + i + " " + vector.get(i));
-        }
         return vector;
     }
 

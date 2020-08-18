@@ -12,44 +12,44 @@ public class Apuestas {
         if (primerApuesta) {
             if (dealer) {
                 if (jugador == 1) {
-                    System.out.println("Jugador 1 Monto a apostar");
+                    System.out.println("Jugador 1 digite el monto a apostar");
                     Scanner scanner = new Scanner(System.in);
                     ronda = scanner.nextInt();
                     dineroJugador1 = dineroJugador1 - ronda;
-                    System.out.println("dineroJug1 " + dineroJugador1);
+                    System.out.println("Dinero Jugador 1: " + dineroJugador1);
                 } else if (jugador == 2) {
                     dineroJugador2 = dineroJugador2 - ronda;
-                    System.out.println("dineroJug2 " + dineroJugador2);
+                    System.out.println("Dinero Jugador 2: " + dineroJugador2);
                 }
 
             } else {
                 if (jugador == 1) {
                     dineroJugador1 = dineroJugador1 - ronda;
-                    System.out.println("dineroJug1 " + dineroJugador1);
+                    System.out.println("Dinero Jugador 1: "+ dineroJugador1);
                 } else if (jugador == 2) {
-                    System.out.println("Jugador 2 Monto a apostar");
+                    System.out.println("Jugador 2 digite el monto a apostar");
                     Scanner scanner = new Scanner(System.in);
                     ronda = scanner.nextInt();
                     dineroJugador2 = dineroJugador2 - ronda;
-                    System.out.println("dineroJug2 " + dineroJugador2);
+                    System.out.println("Dinero Jugador 2: " + dineroJugador2);
                 }
             }
         } else {
             if (dealer) {
                 if (jugador == 1) {
                     dineroJugador1 = dineroJugador1 - ronda;
-                    System.out.println("dineroJug1 " + dineroJugador1);
+                    System.out.println("Dinero Jugador 1: " + dineroJugador1);
                 } else if (jugador == 2) {
                     dineroJugador2 = dineroJugador2 - ronda;
-                    System.out.println("dineroJug2 " + dineroJugador2);
+                    System.out.println("Dinero Jugador 2: " + dineroJugador2);
                 }
             } else {
                 if (jugador == 1) {
                     dineroJugador1 = dineroJugador1 - ronda;
-                    System.out.println("dineroJug1  " + dineroJugador1);
+                    System.out.println("Dinero Jugador 1: " + dineroJugador1);
                 } else if (jugador == 2) {
                     dineroJugador2 = dineroJugador2 - ronda;
-                    System.out.println("dineroJug2 " + dineroJugador2);
+                    System.out.println("Dinero Jugador 2: "+ dineroJugador2);
                 }
 
             }
@@ -66,5 +66,13 @@ public class Apuestas {
 
     public boolean isDealer() {
         return dealer;
+    }
+
+    public int getDineroJugador1() {
+        return dineroJugador1;
+    }
+
+    public int getDineroJugador2() {
+        return dineroJugador2;
     }
 }

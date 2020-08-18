@@ -35,24 +35,27 @@ public class SevenCards extends Poker {
             apuestas.setDealer(true);
             baraja.repartir(7, jugador1, jugador2);
 
+            System.out.println("Dinero Jugador 1: "+apuestas.getDineroJugador1());
+            System.out.println("Dinero Jugador 2: "+apuestas.getDineroJugador2());
             //Imprime cartas
-            System.out.print("Cartas Jugador1: ");
+            System.out.print("\n"+"Cartas Jugador 1: ");
             for (int i = 0; i <2; i++) {
                 System.out.print(jugador1.getMano().getMano().get(i).toString()+"| ");
             }
-            System.out.print("\n"+"Cartas Jugador2: ");
+
+            System.out.print("\n"+"Cartas Jugador 2: ");
             for (int i = 0; i <2; i++) {
                 System.out.print(jugador2.getMano().getMano().get(i).toString()+"| ");
             }
 
             //Apuesta
-            System.out.println("\n"+"Jugador 1 quiere apostar?");
+            System.out.println("\n"+"\n"+"Jugador 1 quiere apostar?");
             Scanner scanner1=new Scanner(System.in);
             entrada1= scanner1.nextLine();
             if (entrada1.equals("si")){
                 apuestas.ronda(1,primerApuesta);
             }
-            System.out.println("Jugador 2 quiere apostar?");
+            System.out.println("\n"+"Jugador 2 quiere apostar?");
             Scanner scanner2=new Scanner(System.in);
             entrada2= scanner2.nextLine();
             if (entrada2.equals("si")){
@@ -61,22 +64,31 @@ public class SevenCards extends Poker {
         } else {
             baraja.repartir(7, jugador2, jugador1);
 
+            System.out.println("Dinero Jugador 1: "+apuestas.getDineroJugador1());
+            System.out.println("Dinero Jugador 2: "+apuestas.getDineroJugador2());
             //Imprime cartas
-            System.out.print("Cartas Jugador1: ");
+            System.out.print("\n"+"Cartas Jugador 1: ");
             for (int i = 0; i <2; i++) {
                 System.out.print(jugador1.getMano().getMano().get(i).toString()+"| ");
             }
-            System.out.print("\n"+"Cartas Jugador2: ");
+
+            System.out.print("\n"+"Cartas Jugador 2: ");
             for (int i = 0; i <2; i++) {
                 System.out.print(jugador2.getMano().getMano().get(i).toString()+"| ");
             }
-
-            System.out.println("\n"+"Jugador 2 quiere apostar?");
+            //Apuesta
+            System.out.println("\n"+"\n"+"Jugador 2 quiere apostar?");
             Scanner scanner2=new Scanner(System.in);
             entrada2= scanner2.nextLine();
-            System.out.println("Jugador 1 quiere apostar?");
+            if (entrada2.equals("si")){
+                apuestas.ronda(2,primerApuesta);
+            }
+            System.out.println("\n"+"Jugador 1 quiere apostar?");
             Scanner scanner1=new Scanner(System.in);
             entrada1= scanner1.nextLine();
+            if (entrada1.equals("si")){
+                apuestas.ronda(1,primerApuesta);
+            }
         }
 
         //Apuesta
@@ -86,7 +98,7 @@ public class SevenCards extends Poker {
 
         //3 cartas
         //Imprime cartas
-        System.out.print("Cartas Jugador1: ");
+        System.out.print("\n"+"Cartas Jugador1: ");
         for (int i = 0; i <5; i++) {
             System.out.print(jugador1.getMano().getMano().get(i).toString()+"| ");
         }
@@ -97,13 +109,13 @@ public class SevenCards extends Poker {
 
         //Apuesta
         if (apuestas.isDealer()){
-            System.out.println("\n"+"Jugador 1 quiere apostar?");
+            System.out.println("\n"+"\n"+"Jugador 1 quiere apostar?");
             Scanner scanner1=new Scanner(System.in);
             entrada1= scanner1.nextLine();
             if (entrada1.equals("si")){
                 apuestas.ronda(1,primerApuesta);
             }
-            System.out.println("Jugador 2 quiere apostar?");
+            System.out.println("\n"+"Jugador 2 quiere apostar?");
             Scanner scanner2=new Scanner(System.in);
             entrada2= scanner2.nextLine();
             if (entrada2.equals("si")){
@@ -111,13 +123,13 @@ public class SevenCards extends Poker {
             }
         }
         else {
-            System.out.println("\n"+"Jugador 1 quiere apostar?");
+            System.out.println("\n"+"\n"+"Jugador 1 quiere apostar?");
             Scanner scanner1=new Scanner(System.in);
             entrada1= scanner1.nextLine();
             if (entrada1.equals("si")){
                 apuestas.ronda(1,primerApuesta);
             }
-            System.out.println("Jugador 2 quiere apostar?");
+            System.out.println("\n"+"Jugador 2 quiere apostar?");
             Scanner scanner2=new Scanner(System.in);
             entrada2= scanner2.nextLine();
             if (entrada2.equals("si")){
@@ -126,26 +138,38 @@ public class SevenCards extends Poker {
         }
 
         //Imprime cartas
-        System.out.print("Cartas Jugador1: ");
+        System.out.print("\n"+"Cartas Jugador 1: ");
         for (int i = 0; i <6; i++) {
             System.out.print(jugador1.getMano().getMano().get(i).toString()+"| ");
         }
-        System.out.print("\n"+"Cartas Jugador2: ");
+        System.out.print("\n"+"Cartas Jugador 2: ");
         for (int i = 0; i <6; i++) {
             System.out.print(jugador2.getMano().getMano().get(i).toString()+"| ");
         }
 
         //Apuesta
         if (apuestas.isDealer()){
-            System.out.println("\n"+"Jugador 1 quiere apostar?");
+            System.out.println("\n"+"\n"+"Jugador 1 quiere apostar?");
             Scanner scanner1=new Scanner(System.in);
             entrada1= scanner1.nextLine();
             if (entrada1.equals("si")){
                 apuestas.ronda(1,primerApuesta);
             }
+            System.out.println("\n"+"Jugador 2 quiere apostar?");
+            Scanner scanner2=new Scanner(System.in);
+            entrada2= scanner2.nextLine();
+            if (entrada2.equals("si")){
+                apuestas.ronda(2,primerApuesta);
+            }
         }
         else {
-            System.out.println("Jugador 2 quiere apostar?");
+            System.out.println("\n"+"\n"+"Jugador 1 quiere apostar?");
+            Scanner scanner1=new Scanner(System.in);
+            entrada1= scanner1.nextLine();
+            if (entrada1.equals("si")){
+                apuestas.ronda(1,primerApuesta);
+            }
+            System.out.println("\n"+"Jugador 2 quiere apostar?");
             Scanner scanner2=new Scanner(System.in);
             entrada2= scanner2.nextLine();
             if (entrada2.equals("si")){
@@ -154,26 +178,38 @@ public class SevenCards extends Poker {
         }
 
         //Imprime cartas
-        System.out.print("Cartas Jugador1: ");
+        System.out.print("\n"+"Cartas Jugador 1: ");
         for (int i = 0; i <7; i++) {
             System.out.print(jugador1.getMano().getMano().get(i).toString()+"| ");
         }
-        System.out.print("\n"+"Cartas Jugador2: ");
+        System.out.print("\n"+"Cartas Jugador 2: ");
         for (int i = 0; i <7; i++) {
             System.out.print(jugador2.getMano().getMano().get(i).toString()+"| ");
         }
 
         //Apuesta
         if (apuestas.isDealer()){
-            System.out.println("\n"+"Jugador 1 quiere apostar?");
+            System.out.println("\n"+"\n"+"Jugador 1 quiere apostar?");
             Scanner scanner1=new Scanner(System.in);
             entrada1= scanner1.nextLine();
             if (entrada1.equals("si")){
                 apuestas.ronda(1,primerApuesta);
             }
+            System.out.println("\n"+"Jugador 2 quiere apostar?");
+            Scanner scanner2=new Scanner(System.in);
+            entrada2= scanner2.nextLine();
+            if (entrada2.equals("si")){
+                apuestas.ronda(2,primerApuesta);
+            }
         }
         else {
-            System.out.println("Jugador 2 quiere apostar?");
+            System.out.println("\n"+"\n"+"Jugador 1 quiere apostar?");
+            Scanner scanner1=new Scanner(System.in);
+            entrada1= scanner1.nextLine();
+            if (entrada1.equals("si")){
+                apuestas.ronda(1,primerApuesta);
+            }
+            System.out.println("\n"+"Jugador 2 quiere apostar?");
             Scanner scanner2=new Scanner(System.in);
             entrada2= scanner2.nextLine();
             if (entrada2.equals("si")){
@@ -181,19 +217,17 @@ public class SevenCards extends Poker {
             }
         }
 
-        ArrayList<Carta> manoTemp = jugador1.getMano().getMano();
-        ArrayList<Carta> manoTemp2 = jugador2.getMano().getMano();
-        for (Carta carta : manoTemp) {
-            if (carta != null) {
-                System.out.println("Jugador 1: " + carta.getNumero() + carta.getPalo());
-            }
+        //Imprime cartas
+        System.out.print("\n"+"Cartas Jugador 1: ");
+        for (int i = 0; i <7; i++) {
+            System.out.print(jugador1.getMano().getMano().get(i).toString()+"| ");
         }
-        for (Carta carta : manoTemp2) {
-            if (carta != null) {
-                System.out.println("Jugador 2: " + carta.getNumero() + carta.getPalo());
-            }
+        System.out.print("\n"+"Cartas Jugador 2: ");
+        for (int i = 0; i <7; i++) {
+            System.out.print(jugador2.getMano().getMano().get(i).toString()+"| ");
         }
 
+        //Combinar
         Combinaciones c = new Combinaciones();
         ArrayList<ArrayList<Integer>> resultado=new ArrayList<>();
         resultado = c.combinacion(7, 5);
@@ -244,18 +278,10 @@ public class SevenCards extends Poker {
                 }
             }
         }
-        for (int k : valoresJug1) {
-            System.out.println("ValoresJug1:" + k);
-        }
-        System.out.println("Ver valores de vectores");
-        for (int j : valoresJug2) {
-            System.out.println("ValoresJug2:" + j);
-        }
 
         int minJug1 = valoresJug1[0];
         int minJug2 = valoresJug2[0];
-        System.out.println("Minimo en ceroJug1" + minJug1);
-        System.out.println("Minimo en ceroJug2" + minJug2);
+
         int index1 = 0;
         int index2 = 0;
         for (int i = 0; i < valoresJug1.length; i++) {
@@ -269,25 +295,7 @@ public class SevenCards extends Poker {
             }
         }
 
-        System.out.println("UltimoMinimo en ceroJug1" + minJug1 + " " + index1);
-        System.out.println("UltimoMinimo en ceroJug2" + minJug2 + " " + index2);
-        System.out.println(vectoresManoJug1.get(index1).getMano().size());
-        for (int i = 0; i < vectoresManoJug1.get(index1).getMano().size(); i++) {
-            Carta carta;
-            carta = vectoresManoJug1.get(index1).getMano().get(i);
-            if (carta != null) {
-                System.out.println("Jugador 1: " + carta.getNumero() + carta.getPalo());
-            }
-        }
 
-        System.out.println(vectoresManoJug2.get(index2).getMano().size());
-        for (int i = 0; i < vectoresManoJug2.get(index2).getMano().size(); i++) {
-            Carta carta;
-            carta = vectoresManoJug2.get(index2).getMano().get(i);
-            if (carta != null) {
-                System.out.println("Jugador 2: " + carta.getNumero() + carta.getPalo());
-            }
-        }
         if (minJug1 < minJug2) {
             jugador1.setGanar(true);
         } else if (minJug1 > minJug2) {
@@ -295,7 +303,20 @@ public class SevenCards extends Poker {
         } else {
             empate(vectoresManoJug1.get(index1), vectoresManoJug2.get(index2));
         }
-        System.out.println(jugador1.isGanar());
-        System.out.println(jugador2.isGanar());
+        if (jugador1.isGanar()&&jugador2.isGanar()){
+            System.out.println("\n"+"\n"+"----------");
+            System.out.println("  Empate");
+            System.out.println("----------");
+        }
+        else if (jugador2.isGanar()){
+            System.out.println("\n"+"\n"+"-----------------------");
+            System.out.println("  Ganador: Jugador 2");
+            System.out.println("-----------------------");
+        }
+        else if (jugador1.isGanar()){
+            System.out.println("\n"+"\n"+"-----------------------");
+            System.out.println("  Ganador: Jugador 1");
+            System.out.println("-----------------------");
+        }
     }
 }
