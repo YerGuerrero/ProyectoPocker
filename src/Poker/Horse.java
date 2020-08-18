@@ -33,9 +33,8 @@ public class Horse extends Poker {
                 System.out.println(" Nueva Partida");
                 System.out.println("-----------------");
             }
-
-
         }
+
         System.out.println("---------------------------");
         System.out.println(" Siguiente modo de Juego");
         System.out.println("---------------------------");
@@ -78,6 +77,7 @@ public class Horse extends Poker {
                 System.out.println("-----------------");
             }
         }
+
         System.out.println("---------------------------");
         System.out.println(" Siguiente modo de Juego");
         System.out.println("---------------------------");
